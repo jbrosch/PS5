@@ -1,5 +1,7 @@
 package com.example.androidgui;
 
+import java.text.DecimalFormat;
+
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -41,7 +43,9 @@ public class MainActivity extends ActionBarActivity {
 				double amount = Double.parseDouble(invest.getText().toString());
 				double years=Double.parseDouble(time.getText().toString());
 				double value = Lab1.PMT(years,amount,interest);
-				String result = new Double(value).toString();
+				DecimalFormat df = new DecimalFormat("#.##");
+				//String result = new Double(value).toString();
+				String result = String.valueOf(df.format(value));
 				amountPrint.setText(result);
 			}
 		});
